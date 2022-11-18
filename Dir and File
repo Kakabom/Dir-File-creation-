@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo "Directory and file creation menu"
+select action in Directory File ; do
+
+if [[ "$action" = "Directory" ]] ; then
+   read -p "Enter a directory: " dd
+   if [[ -d "$dd" ]] ; then
+        echo "$dd is a valid directory and it exists"
+        exit
+   else
+        read -p "$dd directory does not exist, do you want to create it? Y/N : " YN
+   fi
+
+   if [[ "$YN" = "Y" ]] || [[ "$YN" = "y" ]]  || [[ "$YN" = "YES" ]] || [[ "$YN" = "yes" ]] ; then
+       mkdir "$dd"
+       echo "the Directory $dd was created"
+   else
+       echo "$YN is not Y or yes, canceling directory $dd creation"
+   fi
+   break
+fi
+
+if [[ "$action" = "file" ]] ; then
+read -p "Enter a path to file: " file
+   if [[ -f "$file" ]] ; then
+        echo "file $file already  exists"
+        exit                                                                                                                                                                    >
+        read -p "File $dd does not exist, do you want to create it? Y/N : " YN2
+   fi
+
+   if [[ "$YN2" = "Y" ]] || [[ "$YN2" = "y" ]]  || [[ "$YN2" = "YES" ]] || [[ "$YN2" = "yes" ]] ; then
+       touch "$file"
+       echo "the file $file  was created"
+   else
+       echo "$YN is not Y or yes, canceling file $file  creation"
+   fi
+   break
+fi
+done
