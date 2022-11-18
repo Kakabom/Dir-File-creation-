@@ -34,7 +34,7 @@ read -p "Enter a path to file: " file
        touch "$file"
        echo "the file $file  was created"
    else
-       echo "$YN is not Y or yes, canceling file $file  creation"
+       echo "$YN2 is not Y or yes, canceling file $file  creation"
    fi
    break
 fi
