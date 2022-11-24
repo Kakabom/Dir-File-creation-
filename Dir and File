@@ -21,7 +21,7 @@ if [[ "$action" = "Directory" ]] ; then
    break
 fi
 
-if [[ "$action" = "file" ]] ; then
+if [[ "$action" = "File" ]] ; then
 read -p "Enter a path to file: " file
    if [[ -f "$file" ]] ; then
         echo "file $file already  exists"
